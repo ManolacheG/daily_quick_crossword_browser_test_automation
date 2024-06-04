@@ -12,6 +12,9 @@ ${GAME_CONTAINER_FRAME_XPATH}    //iframe[@id='${GAME_CONTAINER_FRAME_ID}']
 ${MAIN_MENU_INTERACTABLE_SECTION}    //section[contains(@class, 'gameStart_container__')]
 ${MAIN_MENU_SELECTED_MONTH_XPATH}    ${MAIN_MENU_INTERACTABLE_SECTION}/section/span
 ${MAIN_MENU_CHANGE_MONTH_BUTTON_XPATH}    ${MAIN_MENU_INTERACTABLE_SECTION}/section/button[2]
+${MAIN_MENU_BASE_CALENDAR_DAY_XPATH}    ${MAIN_MENU_INTERACTABLE_SECTION}/ul/li
+
+${GAME_GRID_BASE_XPATH}    //section[contains(@class,'game_gridLayout__')]
 
 
 *** Keywords ***
@@ -47,3 +50,13 @@ Verify Calendar Header Displays Month And Year
 
     Should Be Equal As Strings    ${expected_month_and_year_string}
     ...                           ${displayed_month_and_year_string}
+
+
+Start Puzzle From Currently Selected Month
+    [Arguments]    ${puzzle_day}
+
+    Helpers.Switch To Frame After It Loads    id:${GAME_CONTAINER_FRAME_ID}
+        Helpers.Click Element After It Loads    xpath:${MAIN_MENU_BASE_CALENDAR_DAY_XPATH}\[${puzzle_day}\]
+
+        Wait For Element To Be Interactable    xpath:${GAME_GRID_BASE_XPATH}
+    Unselect Frame
