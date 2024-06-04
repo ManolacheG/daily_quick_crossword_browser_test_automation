@@ -61,7 +61,7 @@ Get "Is Element Loaded" JavaScript
 # Date and time operations.
 Get Current Month And Year In Local Time
     ${month_year_as_string}    Get Current Date    result_format=%B %Y    exclude_millis=True
-    ${month_year_as_list}    Split String    ${month_year_as_string}
+    @{month_year_as_list}    Split String    ${month_year_as_string}
 
     VAR    &{month_year_as_dict}    month=${month_year_as_list}[0]    year=${month_year_as_list}[1]
 
