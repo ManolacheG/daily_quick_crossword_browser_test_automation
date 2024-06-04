@@ -17,80 +17,93 @@ ${MAIN_MENU_BASE_CALENDAR_DAY_XPATH}    ${MAIN_MENU_INTERACTABLE_SECTION}/ul/li
 ${GAME_GRID_BASE_XPATH}    //section[contains(@class,'game_gridLayout__')]
 ${GAME_FOOTER_PUZZLE_INFO}    //span[contains(@class,'game_inlinePuzzleInfo__')]
 
+
 *** Keywords ***
+# Frame-related Keywords.
+Select Game Container Frame
+    Helpers.Switch To Frame After It Loads    id:${GAME_CONTAINER_FRAME_ID}
+
+
 # Main menu Keywords.
 Wait For Main Menu To Load
-    Helpers.Switch To Frame After It Loads    id:${GAME_CONTAINER_FRAME_ID}
-        Wait Until Page Contains Element    xpath:${MAIN_MENU_SELECTED_MONTH_XPATH}
-    Unselect Frame
+    [Setup]    Select Game Container Frame
 
+    Wait Until Page Contains Element    xpath:${MAIN_MENU_SELECTED_MONTH_XPATH}
+
+    [Teardown]    Unselect Frame
 
 Switch Calendar To Previous Month
-    Helpers.Switch To Frame After It Loads    id:${GAME_CONTAINER_FRAME_ID}
-        ${initial_selected_month_text}    Get Text
-        ...                               xpath:${MAIN_MENU_SELECTED_MONTH_XPATH}
+    [Setup]    Select Game Container Frame
 
-        Helpers.Click Element After It Loads    ${MAIN_MENU_CHANGE_MONTH_BUTTON_XPATH}
+    ${initial_selected_month_text}    Get Text
+    ...                               xpath:${MAIN_MENU_SELECTED_MONTH_XPATH}
+    Helpers.Click Element After It Loads    xpath:${MAIN_MENU_CHANGE_MONTH_BUTTON_XPATH}
+    Wait Until Element Does Not Contain    xpath:${MAIN_MENU_SELECTED_MONTH_XPATH}
+    ...                                    ${initial_selected_month_text}
 
-        Wait Until Element Does Not Contain    xpath:${MAIN_MENU_SELECTED_MONTH_XPATH}
-        ...                                    ${initial_selected_month_text}
-    Unselect Frame
-
+    [Teardown]    Unselect Frame
 
 Verify Calendar Header Displays Month And Year
     [Arguments]    ${month_name}    ${year}
 
+    [Setup]    Select Game Container Frame
+
     ${month_name}    Convert To Upper Case    ${month_name}
     VAR    ${expected_month_and_year_string}    ${month_name}    ${year}
 
-    Helpers.Switch To Frame After It Loads    id:${GAME_CONTAINER_FRAME_ID}
-        ${displayed_month_and_year_string}    Get Text
-        ...                                   xpath:${MAIN_MENU_SELECTED_MONTH_XPATH}
-    Unselect Frame
+    ${displayed_month_and_year_string}    Get Text
+    ...                                   xpath:${MAIN_MENU_SELECTED_MONTH_XPATH}
 
     Should Be Equal As Strings    ${expected_month_and_year_string}
     ...                           ${displayed_month_and_year_string}
 
+    [Teardown]    Unselect Frame
+
 Get Currently Selected Month and Year From Calendar Header
-    Helpers.Switch To Frame After It Loads    id:${GAME_CONTAINER_FRAME_ID}
-        ${displayed_month_year_as_string}    Get Text
-        ...                                  xpath:${MAIN_MENU_SELECTED_MONTH_XPATH}
-        @{displayed_month_year_as_list}    Split String
-        ...                                ${displayed_month_year_as_string}
-        VAR    &{displayed_month_year_as_dict}    month=${displayed_month_year_as_list}[0]
-        ...                                       year=${displayed_month_year_as_list}[1]
-    Unselect Frame
+     [Setup]    Select Game Container Frame
+
+    ${displayed_month_year_as_string}    Get Text
+    ...                                  xpath:${MAIN_MENU_SELECTED_MONTH_XPATH}
+    @{displayed_month_year_as_list}    Split String
+    ...                                ${displayed_month_year_as_string}
+    VAR    &{displayed_month_year_as_dict}    month=${displayed_month_year_as_list}[0]
+    ...                                       year=${displayed_month_year_as_list}[1]
 
     RETURN    ${displayed_month_year_as_dict}
+
+    [Teardown]    Unselect Frame
 
 
 Start Puzzle From Currently Selected Month
     [Arguments]    ${puzzle_day}
 
-    Helpers.Switch To Frame After It Loads    id:${GAME_CONTAINER_FRAME_ID}
-        Helpers.Click Element After It Loads    xpath:${MAIN_MENU_BASE_CALENDAR_DAY_XPATH}\[${puzzle_day}\]
+    [Setup]    Select Game Container Frame
 
-        Wait For Element To Be Interactable    xpath:${GAME_GRID_BASE_XPATH}
-    Unselect Frame
+    Helpers.Click Element After It Loads    xpath:${MAIN_MENU_BASE_CALENDAR_DAY_XPATH}\[${puzzle_day}\]
+    Wait For Element To Be Interactable    xpath:${GAME_GRID_BASE_XPATH}
+
+    [Teardown]    Unselect Frame
 
 
+# In-game Keywords.
 Verify Game Footer Puzzle Date
     [Arguments]    ${expected_day}    ${expected_month_name}    ${expected_year}
 
-    Helpers.Switch To Frame After It Loads    id:${GAME_CONTAINER_FRAME_ID}
-        ${game_footer_puzzle_info_as_string}    Get Text
-        ...                                     xpath:${GAME_FOOTER_PUZZLE_INFO}
+    [Setup]    Select Game Container Frame
 
-        @{game_footer_puzzle_info_as_list}    Split String
-        ...                                   ${game_footer_puzzle_info_as_string}
+    ${game_footer_puzzle_info_as_string}    Get Text
+    ...                                     xpath:${GAME_FOOTER_PUZZLE_INFO}
+    @{game_footer_puzzle_info_as_list}    Split String
+    ...                                   ${game_footer_puzzle_info_as_string}
 
-        VAR    ${game_footer_puzzle_info_day}    ${game_footer_puzzle_info_as_list}[3]
-        VAR    ${game_footer_puzzle_info_month_name}    ${game_footer_puzzle_info_as_list}[4]
-        VAR    ${game_footer_puzzle_info_year}    ${game_footer_puzzle_info_as_list}[5]
-        ${game_footer_puzzle_info_year}    Get Substring    ${game_footer_puzzle_info_year}
-        ...                                0    4
-    Unselect Frame
+    VAR    ${game_footer_puzzle_info_day}    ${game_footer_puzzle_info_as_list}[3]
+    VAR    ${game_footer_puzzle_info_month_name}    ${game_footer_puzzle_info_as_list}[4]
+    VAR    ${game_footer_puzzle_info_year}    ${game_footer_puzzle_info_as_list}[5]
+    ${game_footer_puzzle_info_year}    Get Substring    ${game_footer_puzzle_info_year}
+    ...                                0    4
 
     Should Be Equal As Strings    ${expected_day}   ${game_footer_puzzle_info_day}
     Should Be Equal As Strings    ${expected_month_name}   ${game_footer_puzzle_info_month_name}
     Should Be Equal As Strings    ${expected_year}   ${game_footer_puzzle_info_year}
+
+    [Teardown]    Unselect Frame
