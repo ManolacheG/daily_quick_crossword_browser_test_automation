@@ -28,11 +28,16 @@ Shutdown Browsers
 
 
 # Keywords for elements that load asynchronously
-Click Element After It Loads
-    [Arguments]    ${locator}    ${modifier}=${False}    ${action_chain}=${False}
+Wait For Element To Be Interactable
+    [Arguments]    ${locator}
 
     Wait Until Page Contains Element    ${locator}
     Wait Until Element Is Visible    ${locator}
+
+Click Element After It Loads
+    [Arguments]    ${locator}    ${modifier}=${False}    ${action_chain}=${False}
+
+    Wait For Element To Be Interactable    ${locator}
     Click Element    ${locator}    ${modifier}    ${action_chain}
 
 
