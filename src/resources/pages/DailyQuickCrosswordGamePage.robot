@@ -35,11 +35,14 @@ Verify That Current Month Is Selected In Main Menu
     DailyQuickCrosswordGameContainer.Verify Calendar Header Displays Month And Year
     ...    ${current_month_year_dict.month}    ${current_month_year_dict.year}
 
-Start Puzzle From Previous Month
-    [Arguments]    ${puzzle_day}
+Start Puzzle
+    [Arguments]    ${puzzle_day}    ${puzzle_month_name}
 
-    Switch Calendar To Previous Month
-    Start Puzzle From Currently Selected Month    ${puzzle_day}
+    ${calendar_header_month_year}    DailyQuickCrosswordGameContainer.Get Currently Selected Month and Year From Calendar Header
+    IF  $puzzle_month_name.upper() != $calendar_header_month_year.month
+        DailyQuickCrosswordGameContainer.Switch Calendar To Previous Month
+    END
+    DailyQuickCrosswordGameContainer.Start Puzzle From Currently Selected Month    ${puzzle_day}
 
 
 
