@@ -35,6 +35,13 @@ Verify That Current Month Is Selected In Main Menu
     DailyQuickCrosswordGameContainer.Verify Calendar Header Displays Month And Year
     ...    ${current_month_year_dict.month}    ${current_month_year_dict.year}
 
+Start Puzzle From Previous Month
+    [Arguments]    ${puzzle_day}
+
+    Switch Calendar To Previous Month
+    Start Puzzle From Currently Selected Month    ${puzzle_day}
+
+
 
 Wait For Page To Become Interactable
     ${cookie_dialog_loaded_cond}    Helpers.Get "Is Element Loaded" Javascript
