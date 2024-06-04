@@ -51,6 +51,18 @@ Verify Calendar Header Displays Month And Year
     Should Be Equal As Strings    ${expected_month_and_year_string}
     ...                           ${displayed_month_and_year_string}
 
+Get Currently Selected Month and Year From Calendar Header
+    Helpers.Switch To Frame After It Loads    id:${GAME_CONTAINER_FRAME_ID}
+        ${displayed_month_year_as_string}    Get Text
+        ...                                  xpath:${MAIN_MENU_SELECTED_MONTH_XPATH}
+        ${displayed_month_year_as_list}    Split String
+        ...                                ${displayed_month_year_as_string}
+        VAR    &{displayed_month_year_as_dict}    month=${displayed_month_year_as_list}[0]
+        ...                                       year=${displayed_month_year_as_list}[1]
+    Unselect Frame
+
+    RETURN    ${displayed_month_year_as_dict}
+
 
 Start Puzzle From Currently Selected Month
     [Arguments]    ${puzzle_day}
