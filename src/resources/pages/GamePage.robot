@@ -1,7 +1,7 @@
 *** Settings ***
 Resource    ../Helpers.robot
 Resource    ../ExternalVariables.robot
-Resource    DailyQuickCrosswordGameContainer.robot
+Resource    GameContainer.robot
 
 
 *** Variables ***
@@ -28,21 +28,21 @@ Prepare Game Main Menu For Interaction
     Wait For Page To Become Interactable
     Close Dialogs Blocking Game Container
 
-    DailyQuickCrosswordGameContainer.Wait For Main Menu To Load
+    GameContainer.Wait For Main Menu To Load
 
 Verify That Current Month Is Selected In Main Menu
     ${current_month_year_dict}    Get Current Month And Year In Local Time
-    DailyQuickCrosswordGameContainer.Verify Calendar Header Displays Month And Year
+    GameContainer.Verify Calendar Header Displays Month And Year
     ...    ${current_month_year_dict.month}    ${current_month_year_dict.year}
 
 Start Puzzle
     [Arguments]    ${puzzle_day}    ${puzzle_month_name}
 
-    ${calendar_header_month_year}    DailyQuickCrosswordGameContainer.Get Currently Selected Month and Year From Calendar Header
+    ${calendar_header_month_year}    GameContainer.Get Currently Selected Month and Year From Calendar Header
     IF  $puzzle_month_name.upper() != $calendar_header_month_year.month
-        DailyQuickCrosswordGameContainer.Switch Calendar To Previous Month
+        GameContainer.Switch Calendar To Previous Month
     END
-    DailyQuickCrosswordGameContainer.Start Puzzle From Currently Selected Month    ${puzzle_day}
+    GameContainer.Start Puzzle From Currently Selected Month    ${puzzle_day}
 
 
 
