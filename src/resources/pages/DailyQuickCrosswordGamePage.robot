@@ -12,9 +12,9 @@ ${COOKIE_DIALOG_GENERIC_BUTTON_XPATH}    ${COOKIE_DIALOG_XPATH}/descendant::div[
 ${COOKIE_DIALOG_AGREE_BUTTON_XPATH}    ${COOKIE_DIALOG_GENERIC_BUTTON_XPATH}/span[text()='AGREE']/..
 
 ${PREROLL_CONTAINER_FRAME_XPATH}    //div[@id='ark_pre-roll']/descendant::iframe
+${COMMON_GOOGLE_ADS_FRAME_XPATH}    //iframe[starts-with(@id, 'google_ads_iframe')]
+${COMMON_GOOGLE_ADS_NESTED_FRAME_XPATH}    //iframe[@id='ad_iframe']
 ${PREROLL_CONTAINER_DISMISS_AD_BUTTON_ID}    dismiss-button
-
-${COMMON_GOOGLE_ADS_IFRAME_XPATH}    //iframe[starts-with(@id, 'google_ads_iframe')]
 
 
 *** Keywords ***
@@ -60,7 +60,12 @@ Close Dialogs Blocking Game Container
         # and attempt to continue if it does not exist.
         TRY
             Helpers.Switch To Frame After It Loads    xpath:${PREROLL_CONTAINER_FRAME_XPATH}
-            Helpers.Switch To Frame After It Loads    xpath:${COMMON_GOOGLE_ADS_IFRAME_XPATH}
+            Helpers.Switch To Frame After It Loads    xpath:${COMMON_GOOGLE_ADS_FRAME_XPATH}
+                ${is_ad_dismiss_button_in_current_frame}    Get Element Count
+                ...                                         id:${PREROLL_CONTAINER_DISMISS_AD_BUTTON_ID}
+                IF  not $is_ad_dismiss_button_in_current_frame
+                    Helpers.Switch To Frame After It Loads    xpath:${COMMON_GOOGLE_ADS_NESTED_FRAME_XPATH}
+                END
                 Helpers.Click Element After It Loads    id:${PREROLL_CONTAINER_DISMISS_AD_BUTTON_ID}
             Unselect Frame
         EXCEPT
