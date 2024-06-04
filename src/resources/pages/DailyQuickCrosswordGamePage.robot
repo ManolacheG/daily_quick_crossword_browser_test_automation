@@ -1,6 +1,7 @@
 *** Settings ***
 Resource    ../Helpers.robot
 Resource    ../ExternalVariables.robot
+Resource    DailyQuickCrossWordGameContainer.robot
 
 
 *** Variables ***
@@ -14,10 +15,6 @@ ${PREROLL_CONTAINER_FRAME_XPATH}    //div[@id='ark_pre-roll']/descendant::iframe
 ${PREROLL_CONTAINER_DISMISS_AD_BUTTON_ID}    dismiss-button
 
 ${COMMON_GOOGLE_ADS_IFRAME_XPATH}    //iframe[starts-with(@id, 'google_ads_iframe')]
-
-${GAME_CONTAINER_FRAME_ID}    canvas-box
-${GAME_CONTAINER_FRAME_XPATH}    //iframe[@id='${GAME_CONTAINER_FRAME_ID}']
-${MAIN_MENU_GAME_LOGO_XPATH}    //img[contains(@class,'gameStart_gameLogo__')]
 
 
 *** Keywords ***
