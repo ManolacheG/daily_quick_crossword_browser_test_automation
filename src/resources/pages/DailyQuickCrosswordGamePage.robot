@@ -1,7 +1,7 @@
 *** Settings ***
 Resource    ../Helpers.robot
 Resource    ../ExternalVariables.robot
-Resource    DailyQuickCrossWordGameContainer.robot
+Resource    DailyQuickCrosswordGameContainer.robot
 
 
 *** Variables ***
@@ -24,7 +24,19 @@ Open Browser At Daily Quick Crossword Game Page
     ...                      ${DQC_GAME_URL}
 
 
-Wait For Page To Be Interactable After Load
+Prepare Game Main Menu For Interaction
+    Wait For Page To Become Interactable
+    Close Dialogs Blocking Game Container
+
+    DailyQuickCrosswordGameContainer.Wait For Main Menu To Load
+
+Verify That Current Month Is Selected In Main Menu
+    ${current_month_year_dict}    Get Current Month And Year In Local Time
+    DailyQuickCrosswordGameContainer.Verify Calendar Header Displays Month And Year
+    ...    ${current_month_year_dict.month}    ${current_month_year_dict.year}
+
+
+Wait For Page To Become Interactable
     ${cookie_dialog_loaded_cond}    Helpers.Get "Is Element Loaded" Javascript
     ...                             ${COOKIE_DIALOG_XPATH}
     ${preroll_container_frame_loaded_cond}    Helpers.Get "Is Element Loaded" Javascript
