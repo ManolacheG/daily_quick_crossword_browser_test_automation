@@ -57,6 +57,24 @@ Get "Is Element Loaded" JavaScript
 
     RETURN    ${js}
 
+# Javascript actions.
+Is Element Checked
+    [Documentation]    This Keyword is intended to be used with elements for which
+    ...                the attributes do not change when they are selected.
+
+    [Arguments]    ${locator}
+
+    ${element}    Get WebElement    ${locator}
+    ${js_query_result}    Execute Javascript    return arguments[0].checked
+    ...                   ARGUMENTS    ${element}
+
+    ${is_checked}    Set Variable    ${FALSE}
+    IF  $js_query_result == $TRUE
+        ${is_checked}    Set Variable    ${TRUE}
+    END
+
+    RETURN    ${is_checked}
+
 
 # Date and time operations.
 Get Current Month And Year In Local Time
