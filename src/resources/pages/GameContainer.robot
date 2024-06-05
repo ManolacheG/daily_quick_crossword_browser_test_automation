@@ -34,13 +34,23 @@ ${GAME_CLUE_LIST_ACROSS_ITEM_XPATH}    ${GAME_CLUE_LIST_ACROSS_XPATH}/li
 ${GAME_CLUE_LIST_DOWN_XPATH}    ${GAME_CLUE_LISTS_COMMON_XPATH}\[2\]/ul
 ${GAME_CLUE_LIST_DOWN_ITEM_XPATH}    ${GAME_CLUE_LIST_DOWN_XPATH}/li
 
-${GAME_GRID_TABLE}    //section[contains(@class,'game_gridLayout__')]/*[local-name()='svg']/*[local-name()='g']
-${GAME_GRID_TABLE_CELL}    ${GAME_GRID_TABLE}/*[local-name()='g']
+${GAME_GRID_TABLE_XPATH}    //section[contains(@class,'game_gridLayout__')]/*[local-name()='svg']/*[local-name()='g']
+${GAME_GRID_TABLE_CELL_XPATH}    ${GAME_GRID_TABLE_XPATH}/*[local-name()='g']
+
+${GAME_END_RESULTS_SCREEN_XPATH}    //section[contains(@class,'gameEndPopup_window__')]
+${GAME_END_RESULTS_SCREEN_COMP_PERCENT_FIELD_XPATH}    //section[contains(@class,'gameEndPopup_container__')]/section[1]/h2
+${GAME_END_RESULTS_SCREEN_BUTTONS_CONTAINER_XPATH}    ${GAME_END_RESULTS_SCREEN_XPATH}/descendant::section[contains(@class,'gameEndPopup_submitContainer__')]
+${GAME_END_RESULTS_SCREEN_REVIEW_BUTTON_XPATH}    ${GAME_END_RESULTS_SCREEN_BUTTONS_CONTAINER_XPATH}/button[text()='Review Answers']
+
+${GAME_END_RESULTS_SCREEN_SHOW_BUTTON_XPATH}    //button[contains(@class,'gameEndPopup_showButton__')]
 
 ${GAME_DROPDOWN_OVERLAY_XPATH}    ${GAME_HUD_SECTION_XPATH}/../div[contains(@class,'game_dropdownOverlay__')]
 
 # Other variables.
 ${GAME_SELECTED_SQUARE_COLOR}    rgb(255, 222, 113)
+
+${COMPLETED_PUZZLE_SCREENSHOT_NAME}    completed_puzzle_proof.png
+${RESULT_SCREEN_SCREENSHOT_NAME}    completed_puzzle_results_screen_proof.png
 
 
 *** Keywords ***
@@ -169,6 +179,33 @@ Fill In Puzzle Completely
 
     [Teardown]    Unselect Frame
 
+
+Verify Results Screen Content
+    [Arguments]    ${expected_completion_percentage}
+
+    [Setup]    Select Game Container Frame
+
+    Wait Until Element Contains     xpath:${GAME_END_RESULTS_SCREEN_COMP_PERCENT_FIELD_XPATH}
+    ...                             %
+
+    ${actual_completed_percentage}    Get Text    xpath:${GAME_END_RESULTS_SCREEN_COMP_PERCENT_FIELD_XPATH}
+    Should Be Equal As Strings    ${actual_completed_percentage}
+    ...                           ${expected_completion_percentage}
+
+    [Teardown]    Unselect Frame
+
+Take Completed Puzzle State Screenshots
+    [Setup]    Select Game Container Frame
+
+    Capture Page Screenshot    ${RESULT_SCREEN_SCREENSHOT_NAME}
+
+    Click Element After It Loads    xpath:${GAME_END_RESULTS_SCREEN_REVIEW_BUTTON_XPATH}
+    Wait Until Page Contains Element     xpath:${GAME_END_RESULTS_SCREEN_SHOW_BUTTON_XPATH}
+    Capture Page Screenshot    ${COMPLETED_PUZZLE_SCREENSHOT_NAME}
+
+    [Teardown]    Unselect Frame
+
+
 Fill In Entries For Clues In List
     [Tags]    robot:private
     [Arguments]    ${clue_list_item_locator}    ${clues_with_solutions}
@@ -194,7 +231,7 @@ Fill In Entries For Clues In List
         Should Be Equal As Strings    ${actual_clue_string}    ${clue_dict.clue}
         Should Be Equal As Strings    ${actual_clue_char_counts}    ${clue_dict.char_counts}
 
-        VAR    ${clue_start_grid_cell}    ${GAME_GRID_TABLE_CELL}/*[local-name()='text' and text()='${clue_dict.id}']
+        VAR    ${clue_start_grid_cell}    ${GAME_GRID_TABLE_CELL_XPATH}/*[local-name()='text' and text()='${clue_dict.id}']
         ${clue_start_grid_cell_current_color}    Get Element Attribute
         ...                                      ${clue_start_grid_cell}/../*[local-name()='rect']
         ...                                      fill
