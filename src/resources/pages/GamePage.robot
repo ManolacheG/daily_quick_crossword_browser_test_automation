@@ -1,7 +1,8 @@
 *** Settings ***
 Resource    ../Helpers.robot
 Resource    ../ExternalVariables.robot
-Resource    GameContainer.robot
+
+Resource    GameWindow.robot
 
 
 *** Variables ***
@@ -26,34 +27,12 @@ Prepare Game Main Menu For Interaction
     Wait For Page To Become Interactable
     Close Dialogs Blocking Game Container
 
-    GameContainer.Wait For Main Menu To Load
+    GameWindow.Wait For Main Menu To Load
 
-Verify That Current Month Is Selected In Main Menu
-    ${current_month_year_dict}    Get Current Month And Year In Local Time
-    GameContainer.Verify Calendar Header Displays Month And Year
-    ...    ${current_month_year_dict.month}    ${current_month_year_dict.year}
-
-Start Puzzle
-    [Arguments]    ${puzzle_day}    ${puzzle_month_name}    ${puzzle_year}
-
-    ${calendar_header_month_year}    GameContainer.Get Currently Selected Month and Year From Calendar Header
-    IF  $puzzle_month_name.upper() != $calendar_header_month_year.month
-        GameContainer.Switch Calendar To Previous Month
-    END
-    GameContainer.Start Puzzle From Currently Selected Month    ${puzzle_day}
-    GameContainer.Verify Game Footer Puzzle Date    ${puzzle_day}    ${puzzle_month_name}
-    ...                                             ${puzzle_year}
-
-Complete Puzzle Without Mistakes
-    [Arguments]    ${clues_with_solutions}
-
-    GameContainer.Configure Game For Fast Completion
-    GameContainer.Fill In Puzzle Completely    ${clues_with_solutions}
-
-Verify Results Screen Of Puzzle From Previous Month Completed Without Mistakes
-    Verify Results Screen Content    100%
 
 Wait For Page To Become Interactable
+    [Tags]    robot:private
+
     ${cookie_dialog_loaded_cond}    Helpers.Get "Is Element Loaded" Javascript
     ...                             ${COOKIE_DIALOG_XPATH}
     ${preroll_container_frame_loaded_cond}    Helpers.Get "Is Element Loaded" Javascript
@@ -65,6 +44,8 @@ Wait For Page To Become Interactable
 
 
 Close Dialogs Blocking Game Container
+    [Tags]    robot:private
+
     ${is_cookie_policy_dialog_displayed}    Get Element Count    id:${COOKIE_DIALOG_ID}
     IF  $is_cookie_policy_dialog_displayed
         Agree To Cookie Policy
@@ -92,4 +73,6 @@ Close Dialogs Blocking Game Container
 
 
 Agree To Cookie Policy
+    [Tags]    robot:private
+
     Helpers.Click Element After It Loads    ${COOKIE_DIALOG_AGREE_BUTTON_XPATH}
