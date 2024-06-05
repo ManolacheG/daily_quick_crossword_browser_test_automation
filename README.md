@@ -62,3 +62,11 @@ SeleniumLibrary's GitHub provides information on how browser drivers can be inst
 
 
 # Execution of the Automated Test Script
+1. If the code from this repository was not previously downloaded, perform a git clone, or, download the code archive manually and extract it
+2. Open a new terminal instance (e.g., Command Prompt)
+3. Navigate to the folder in which the code was cloned or extracted
+4. Execute a "dir" or "ls" command and ensure that you are in the root of the repository (e.g., the "src" folder is listed)
+5. Execute the following command to start the execution of the script "robot -d results -v BROWSER:chrome -v DQC_GAME_URL:https://www.gamelab.com/games/daily-quick-crossword src/tests/PuzzleCompletionSmokeTests.robot"
+6. Wait for the execution to complete. RobotFramework will list the execution result once it creates its output files.
+
+The execution of the script creates a results folder (in the folder from which the execution was started) that stores the report and log of the script execution, which allows for the result of the execution to be reviewed after the script execution is concluded.
