@@ -52,6 +52,9 @@ Complete Puzzle Without Mistakes
     GameContainer.Configure Game For Fast Completion
     GameContainer.Fill In Puzzle Completely    ${clues_with_solutions}
 
+Verify Results Screen Of Puzzle From Previous Month Completed Without Mistakes
+    Verify Results Screen Content    100%
+
 Wait For Page To Become Interactable
     ${cookie_dialog_loaded_cond}    Helpers.Get "Is Element Loaded" Javascript
     ...                             ${COOKIE_DIALOG_XPATH}
