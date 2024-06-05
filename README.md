@@ -8,23 +8,26 @@ The test script has been executed and confirmed to be working on Windows 10 with
 # Prerequisites for Successful Script Execution
 
 ## Operating System
-An up to date version of Windows 10 or Windows 11.
+An up to date version of Windows 10 (it is very likely that Windows 11 will work as well).
 
 ## Browser
 An up to date version of Google Chrome, which can be obtain from google's website: https://www.google.com/chrome/.
 
 ## Programming Language Dependencies
 ### Python
-The Python programming language is a dependency for RobotFramework, as such, download and install the latest version of Python as described on the programming language's website https://www.python.org/downloads/.
+The Python programming language is a dependency for RobotFramework, as such, download and install the latest version of Python as described on the website of the programming language at https://www.python.org/downloads/.
 
-**Confirm that the installation was performed successfully** by opening a new terminal and executing the command python --version
+**Confirm that the installation was performed successfully by opening a new terminal and executing the command: python --version**
+
+If any issues are encountered, additional details related to the installation of Python can be found on RobotFramework's GitHub https://github.com/robotframework/robotframework/blob/master/INSTALL.rst#installing-python-on-windows.
+
 
 ### RobotFramework
-The automated test script is implemented using RobotFramework, as such, install the latest version of RobotFramework as described on the RobotFramework website or on its GitHub https://github.com/robotframework/robotframework/blob/master/INSTALL.rst.
+The automated test script is implemented using RobotFramework, as such, install the latest version of RobotFramework as described on the RobotFramework website or on its GitHub https://github.com/robotframework/robotframework/blob/master/INSTALL.rst#installing-and-uninstalling-robot-framework.
 
 **Note that the scripts use features implemented starting with RobotFramework version 7.0. The automated script will not complete execution successfully when executed under a RobotFramework version lower than 7.0.**
 
-**Confirm that the installation was performed successfully** by opening a new terminal and executing the command robotframework --version
+**Confirm that the installation was performed successfully by opening a new terminal and executing the command: robot --version**
 
 
 ### SeleniumLibrary
@@ -36,10 +39,10 @@ The last dependency is ChromeDriver, which must be downloaded and accessible to 
 SeleniumLibrary's GitHub provides documentation on how browser drivers can be installed (see https://github.com/robotframework/SeleniumLibrary/blob/master/README.rst#browser-drivers), but the necessary steps have been provided below as well:
 1. Navigate to https://googlechromelabs.github.io/chrome-for-testing/
 2. Scroll down to the **Stable** table
-3. Identify the chromedriver binary that matches your OS
+3. Identify the chromedriver binary that matches your OS and the currently installed version of Google Chrome
 4. Access the related URL
 5. Save the archive
-6. Create a folder dedicated to browser drivers on one of the partitions of the devices (e.g., "C:/browser_drivers/")
+6. Create a folder dedicated to browser drivers on one of the partitions of the device (e.g., "C:/browser_drivers/")
 7. Extract the binary from the archive downloaded at step 5 into the folder created at step 6
 8. Open the Control Panel
 9. Select "System"
@@ -53,7 +56,7 @@ SeleniumLibrary's GitHub provides documentation on how browser drivers can be in
 17. Click "OK" for the "Edit Variables" window
 18. Click "Apply" then "OK" for the "System Properties" window
 
-**Confirm that the operation was performed successfully** by opening a new terminal and executing the command chromedriver --version
+**Confirm that the operation was performed successfully by opening a new terminal and executing the command: chromedriver --version**
 
 
 # Execution of the Automated Test Script
