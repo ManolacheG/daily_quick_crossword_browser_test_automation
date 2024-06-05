@@ -8,26 +8,28 @@ The test script has been executed and confirmed to be working on Windows 10 with
 # Prerequisites for Successful Script Execution
 
 ## Operating System
-An up to date version of Windows 10 (it is very likely that Windows 11 will work as well).
+An up to date version of Windows 10 (although it is very likely that Windows 11 will work as well).
 
 ## Browser
-An up to date version of Google Chrome, which can be obtain from google's website: https://www.google.com/chrome/.
+An up to date version of Google Chrome, which can be obtained from google's website: https://www.google.com/chrome/.
 
 ## Programming Language Dependencies
 ### Python
 The Python programming language is a dependency for RobotFramework, as such, download and install the latest version of Python as described on the website of the programming language at https://www.python.org/downloads/.
 
-**Confirm that the installation was performed successfully by opening a new terminal and executing the command: python --version**
+**Python Installation Notes**
+1. When installing Python, make sure that the "Add python.exe to PATH" option is selected in the installer.
+2. If any issues are encountered, additional details related to the installation of Python can be found on RobotFramework's GitHub https://github.com/robotframework/robotframework/blob/master/INSTALL.rst#installing-python-on-windows.
+3. Confirm that the installation was performed successfully by opening a new instance of a terminal (e.g., Command Prompt) and executing the command: python --version
 
-If any issues are encountered, additional details related to the installation of Python can be found on RobotFramework's GitHub https://github.com/robotframework/robotframework/blob/master/INSTALL.rst#installing-python-on-windows.
 
 
 ### RobotFramework
-The automated test script is implemented using RobotFramework, as such, install the latest version of RobotFramework as described on the RobotFramework website or on its GitHub https://github.com/robotframework/robotframework/blob/master/INSTALL.rst#installing-and-uninstalling-robot-framework.
+The automated test script is implemented using RobotFramework, as such, install the latest version of RobotFramework as described on the RobotFramework website or on its GitHub (a terminal such as Command Prompt is required to execute the pip install command) https://github.com/robotframework/robotframework/blob/master/INSTALL.rst#installing-and-uninstalling-robot-framework.
 
-**Note that the scripts use features implemented starting with RobotFramework version 7.0. The automated script will not complete execution successfully when executed under a RobotFramework version lower than 7.0.**
-
-**Confirm that the installation was performed successfully by opening a new terminal and executing the command: robot --version**
+**RobotFramework Installation Notes**
+1. The scripts use features implemented starting with RobotFramework version 7.0. The automated script will not complete execution successfully when executed under a RobotFramework version lower than 7.0.
+2. Confirm that the installation was performed successfully by opening a new instance of a terminal (e.g., Command Prompt) and executing the command: robot --version
 
 
 ### SeleniumLibrary
@@ -36,7 +38,7 @@ RobotFramework's SeleniumLibrary uses Selenium internally to enable the automati
 ### ChromeDriver
 The last dependency is ChromeDriver, which must be downloaded and accessible to SeleniumLibrary in order for the automated script to start the browser and interact with it.
 
-SeleniumLibrary's GitHub provides documentation on how browser drivers can be installed (see https://github.com/robotframework/SeleniumLibrary/blob/master/README.rst#browser-drivers), but the necessary steps have been provided below as well:
+SeleniumLibrary's GitHub provides information on how browser drivers can be installed (see https://github.com/robotframework/SeleniumLibrary/blob/master/README.rst#browser-drivers), but the necessary steps have been provided below as well:
 1. Navigate to https://googlechromelabs.github.io/chrome-for-testing/
 2. Scroll down to the **Stable** table
 3. Identify the chromedriver binary that matches your OS and the currently installed version of Google Chrome
@@ -45,18 +47,18 @@ SeleniumLibrary's GitHub provides documentation on how browser drivers can be in
 6. Create a folder dedicated to browser drivers on one of the partitions of the device (e.g., "C:/browser_drivers/")
 7. Extract the binary from the archive downloaded at step 5 into the folder created at step 6
 8. Open the Control Panel
-9. Select "System"
+9. Go to "System And Security" and then to "System" (or just to "System" if the menu item is directly available)
 10. On the right-side of the newly opened window select "Advanced system settings"
 11. Click "Environment Variables" on the newly open "System Properties" window
 12. Select the "Path" item in the "User variables for {USERNAME}" section
 13. Click the "Edit" button
-14. Click the "New" button on the newly open "Edit environment variable" window
+14. Click the "New" or "Browse" button on the newly open "Edit environment variable" window
 15. Add the folder created at step 6
 16. Click "OK" for the "Edit environment variable" window
 17. Click "OK" for the "Edit Variables" window
-18. Click "Apply" then "OK" for the "System Properties" window
+18. Click "OK" for the "System Properties" window
 
-**Confirm that the operation was performed successfully by opening a new terminal and executing the command: chromedriver --version**
+**Confirm that the operation was performed successfully by opening a new instance of terminal (e.g., Command Prompt) and executing the command: chromedriver --version**
 
 
 # Execution of the Automated Test Script
