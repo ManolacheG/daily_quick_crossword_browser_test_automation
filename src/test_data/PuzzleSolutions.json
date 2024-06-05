@@ -1,0 +1,185 @@
+{
+    "28May2024-NoMistakes":
+    {
+        "day": 28,
+        "month_name": "May",
+        "year": "2024",
+        "clues":
+        {
+            "across":
+            [
+                {
+                    "id": "1",
+                    "clue": "Sacred place",
+                    "char_counts": "7",
+                    "solution": "sanctum"
+                },
+                {
+                    "id": "5",
+                    "clue": "Thigh bone",
+                    "char_counts": "5",
+                    "solution": "femur"
+                },
+                {
+                    "id": "8",
+                    "clue": "Enthusiastic",
+                    "char_counts": "5",
+                    "solution": "eager"
+                },
+                {
+                    "id": "9",
+                    "clue": "Skin-tight garment",
+                    "char_counts": "7",
+                    "solution": "leotard"
+                },
+                {
+                    "id": "10",
+                    "clue": "Throw away",
+                    "char_counts": "7",
+                    "solution": "discard"
+                },
+                {
+                    "id": "11",
+                    "clue": "Cord",
+                    "char_counts": "5",
+                    "solution": "twine"
+                },
+                {
+                    "id": "12",
+                    "clue": "Large snake",
+                    "char_counts": "6",
+                    "solution": "python"
+                },
+                {
+                    "id": "14",
+                    "clue": "Friends, in Spain",
+                    "char_counts": "6",
+                    "solution": "amigos"
+                },
+                {
+                    "id": "18",
+                    "clue": "Soup",
+                    "char_counts": "5",
+                    "solution": "broth"
+                },
+                {
+                    "id": "20",
+                    "clue": "Meat from a deer",
+                    "char_counts": "7",
+                    "solution": "venison"
+                },
+                {
+                    "id": "22",
+                    "clue": "Naturally grown",
+                    "char_counts": "7",
+                    "solution": "organic"
+                },
+                {
+                    "id": "23",
+                    "clue": "Wild West show",
+                    "char_counts": "5",
+                    "solution": "rodeo"
+                },
+                {
+                    "id": "24",
+                    "clue": "Drainage channel",
+                    "char_counts": "5",
+                    "solution": "ditch"
+                },
+                {
+                    "id": "25",
+                    "clue": "Shreds",
+                    "char_counts": "7",
+                    "solution": "tatters"
+                }
+            ],
+            "down":
+            [
+                {
+                    "id": "1",
+                    "clue": "Accelerate",
+                    "char_counts": "5,2",
+                    "solution": "speedup"
+                },
+                {
+                    "id": "2",
+                    "clue": "Spiced wine drink",
+                    "char_counts": "5",
+                    "solution": "negus"
+                },
+                {
+                    "id": "3",
+                    "clue": "Whirlwind",
+                    "char_counts": "7",
+                    "solution": "tornado"
+                },
+                {
+                    "id": "4",
+                    "clue": "Illness",
+                    "char_counts": "6",
+                    "solution": "malady"
+                },
+                {
+                    "id": "5",
+                    "clue": "Frozen dew",
+                    "char_counts": "5",
+                    "solution": "frost"
+                },
+                {
+                    "id": "6",
+                    "clue": "Significance",
+                    "char_counts": "7",
+                    "solution": "meaning"
+                },
+                {
+                    "id": "7",
+                    "clue": "Long narrow range of hills",
+                    "char_counts": "5",
+                    "solution": "ridge"
+                },
+                {
+                    "id": "13",
+                    "clue": "Idea",
+                    "char_counts": "7",
+                    "solution": "thought"
+                },
+                {
+                    "id": "15",
+                    "clue": "Tower on a mosque",
+                    "char_counts": "7",
+                    "solution": "minaret"
+                },
+                {
+                    "id": "16",
+                    "clue": "Wavy, winding",
+                    "char_counts": "7",
+                    "solution": "sinuous"
+                },
+                {
+                    "id": "17",
+                    "clue": "Wading bird with a curved bill",
+                    "char_counts": "6",
+                    "solution": "avocet"
+                },
+                {
+                    "id": "18",
+                    "clue": "Wide",
+                    "char_counts": "5",
+                    "solution": "broad"
+                },
+                {
+                    "id": "19",
+                    "clue": "Intuitive feeling",
+                    "char_counts": "5",
+                    "solution": "hunch"
+                },
+                {
+                    "id": "21",
+                    "clue": "Move furtively",
+                    "char_counts": "5",
+                    "solution": "sidle"
+                }
+            ]
+        }
+    }
+}
