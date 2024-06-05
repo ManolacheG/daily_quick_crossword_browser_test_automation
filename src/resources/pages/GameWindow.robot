@@ -1,10 +1,10 @@
 *** Settings ***
 Resource    ../Helpers.robot
 
-Resource    GameMainMenu.robot
-Resource    GameHud.robot
-Resource    GameGridAndClues.robot
-Resource    GameResults.robot
+Resource    GameWindowComponents/GameMainMenu.robot
+Resource    GameWindowComponents/GameHud.robot
+Resource    GameWindowComponents/GameGridAndClues.robot
+Resource    GameWindowComponents/GameResults.robot
 
 
 *** Variables ***

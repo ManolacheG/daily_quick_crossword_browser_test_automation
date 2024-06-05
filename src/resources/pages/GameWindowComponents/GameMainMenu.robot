@@ -1,7 +1,7 @@
 *** Settings ***
 Library    String
 
-Resource    ../Helpers.robot
+Resource    ../../Helpers.robot
 
 
 *** Variables ***
