@@ -12,14 +12,11 @@ ${SELENIUM_TIMEOUT}    ${5}
 *** Keywords ***
 # Browser-related Keywords.
 Start Browser
-    [Arguments]    ${browser}
-    ...            ${inner_doc_width}    ${inner_doc_height}
-    ...            ${url}=${NONE}
+    [Arguments]    ${browser}    ${url}=${NONE}
 
     Open Browser    browser=${browser}    url=${url}
 
-    Set Window Size    ${inner_doc_width}    ${inner_doc_height}    ${TRUE}
-    Set Window Position    ${0}    ${0}
+    Maximize Browser Window
 
     Set Selenium Timeout    ${SELENIUM_TIMEOUT}
 

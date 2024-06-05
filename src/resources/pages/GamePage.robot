@@ -19,9 +19,7 @@ ${PREROLL_CONTAINER_DISMISS_AD_BUTTON_ID}    dismiss-button
 
 *** Keywords ***
 Open Browser At Daily Quick Crossword Game Page
-    Helpers.Start Browser    ${BROWSER}
-    ...                      ${INNER_DOC_WIDTH}    ${INNER_DOC_HEIGHT}
-    ...                      ${DQC_GAME_URL}
+    Helpers.Start Browser    ${BROWSER}    ${DQC_GAME_URL}
 
 
 Prepare Game Main Menu For Interaction
