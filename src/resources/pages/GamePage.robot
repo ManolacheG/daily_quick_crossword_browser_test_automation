@@ -36,15 +36,21 @@ Verify That Current Month Is Selected In Main Menu
     ...    ${current_month_year_dict.month}    ${current_month_year_dict.year}
 
 Start Puzzle
-    [Arguments]    ${puzzle_day}    ${puzzle_month_name}
+    [Arguments]    ${puzzle_day}    ${puzzle_month_name}    ${puzzle_year}
 
     ${calendar_header_month_year}    GameContainer.Get Currently Selected Month and Year From Calendar Header
     IF  $puzzle_month_name.upper() != $calendar_header_month_year.month
         GameContainer.Switch Calendar To Previous Month
     END
     GameContainer.Start Puzzle From Currently Selected Month    ${puzzle_day}
+    GameContainer.Verify Game Footer Puzzle Date    ${puzzle_day}    ${puzzle_month_name}
+    ...                                             ${puzzle_year}
 
+Complete Puzzle Without Mistakes
+    [Arguments]    ${clues_with_solutions}
 
+    GameContainer.Configure Game For Fast Completion
+    GameContainer.Fill In Puzzle Completely    ${clues_with_solutions}
 
 Wait For Page To Become Interactable
     ${cookie_dialog_loaded_cond}    Helpers.Get "Is Element Loaded" Javascript
