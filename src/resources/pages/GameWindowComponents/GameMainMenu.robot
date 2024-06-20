@@ -21,9 +21,9 @@ Wait For Menu To Be Ready
 
 
 Start Puzzle From Currently Selected Month
-    [Arguments]    ${puzzle_day}
+    [Arguments]    ${day_number}
 
-    Helpers.Click Element After It Loads    xpath:${MAIN_MENU_CALENDAR_DAY_BASE_XPATH}\[${puzzle_day}\]
+    Helpers.Click Element After It Loads    xpath:${MAIN_MENU_CALENDAR_DAY_BASE_XPATH}\[${day_number}\]
 
 
 Get Currently Selected Month and Year From Calendar Header
