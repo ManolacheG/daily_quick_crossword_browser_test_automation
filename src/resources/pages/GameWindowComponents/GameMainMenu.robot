@@ -27,6 +27,8 @@ Start Puzzle From Currently Selected Month
 
 
 Get Currently Selected Month and Year From Calendar Header
+    [Documentation]    @returns a dictionary containing the keys "month" and "year".
+
     ${displayed_month_year_as_string}    Get Text
     ...                                  xpath:${MAIN_MENU_SELECTED_MONTH_XPATH}
     @{displayed_month_year_as_list}    Split String
