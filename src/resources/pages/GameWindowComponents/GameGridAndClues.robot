@@ -1,4 +1,7 @@
 *** Settings ***
+Documentation    All Keywords part of this file expect the game container iframe
+...              to have been selected before they are called.
+
 Library    String
 
 Resource    ../../Helpers.robot
