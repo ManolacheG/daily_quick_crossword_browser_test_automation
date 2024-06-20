@@ -13,18 +13,16 @@ An up to date version of Windows 10 (although it is very likely that Windows 11 
 ## Browser
 An up to date version of Google Chrome, which can be obtained from google's website: https://www.google.com/chrome/.
 
-## Programming Language Dependencies
-### Python
+## Python
 The Python programming language is a dependency for RobotFramework, as such, download and install the latest version of Python as described on the website of the programming language at https://www.python.org/downloads/.
 
 **Python Installation Notes**
 1. When installing Python, make sure that the "Add python.exe to PATH" option is selected in the installer.
-2. If any issues are encountered, additional details related to the installation of Python can be found on RobotFramework's GitHub https://github.com/robotframework/robotframework/blob/master/INSTALL.rst#installing-python-on-windows.
+2. If any issues are encountered, additional details related to the installation of Python can be found on RobotFramework's GitHub at https://github.com/robotframework/robotframework/blob/master/INSTALL.rst#installing-python-on-windows.
 3. Confirm that the installation was performed successfully by opening a new instance of a terminal (e.g., Command Prompt) and executing the command: python --version
 
 
-
-### RobotFramework
+## RobotFramework
 The automated test script is implemented using RobotFramework, as such, install the latest version of RobotFramework as described on the RobotFramework website or on its GitHub (a terminal such as Command Prompt is required to execute the pip install command) https://github.com/robotframework/robotframework/blob/master/INSTALL.rst#installing-and-uninstalling-robot-framework.
 
 **RobotFramework Installation Notes**
@@ -32,13 +30,14 @@ The automated test script is implemented using RobotFramework, as such, install 
 2. Confirm that the installation was performed successfully by opening a new instance of a terminal (e.g., Command Prompt) and executing the command: robot --version
 
 
-### SeleniumLibrary
-RobotFramework's SeleniumLibrary uses Selenium internally to enable the automation of browser actions. Since the primary purpose of the automated test script found in this reporistory is to interact with a browser, SeleniumLibrary must be installed as described on its Github https://github.com/robotframework/SeleniumLibrary/blob/master/README.rst#installation.
+## SeleniumLibrary
+RobotFramework's SeleniumLibrary uses Selenium internally to enable the automation of browser actions. Since the primary purpose of the automated test script found in this repository is to interact with a browser, SeleniumLibrary must be installed as described on its Github at https://github.com/robotframework/SeleniumLibrary/blob/master/README.rst#installation.
 
-### ChromeDriver
+
+## ChromeDriver
 The last dependency is ChromeDriver, which must be downloaded and accessible to SeleniumLibrary in order for the automated script to start the browser and interact with it.
 
-SeleniumLibrary's GitHub provides information on how browser drivers can be installed (see https://github.com/robotframework/SeleniumLibrary/blob/master/README.rst#browser-drivers), but the necessary steps have been provided below as well:
+SeleniumLibrary's GitHub provides information on how browser drivers can be installed (see https://github.com/robotframework/SeleniumLibrary/blob/master/README.rst#browser-drivers), however, Windows installation steps for chromedriver have also been included below for completion:
 1. Navigate to https://googlechromelabs.github.io/chrome-for-testing/
 2. Scroll down to the **Stable** table
 3. Identify the chromedriver binary that matches your OS and the currently installed version of Google Chrome
@@ -69,7 +68,7 @@ SeleniumLibrary's GitHub provides information on how browser drivers can be inst
 5. Execute the following command to start the execution of the script "robot -d results -v BROWSER:chrome -v DQC_GAME_URL:https://www.gamelab.com/games/daily-quick-crossword src/tests/PuzzleCompletionSmokeTests.robot"
 6. Wait for the execution to complete. RobotFramework will list the execution result once it creates its output files.
 
-The execution of the script creates a results folder (in the folder from which the execution was started) that stores the report and log of the script execution, which allows for the result of the execution to be reviewed after the script execution is concluded.
+The execution of the script creates a "results" folder (in the folder from which the execution was started) that stores the report and log of the script execution, which allows for the result of the execution to be reviewed after the script execution is concluded.
 
 
 # Automated Test Execution Proof and Report
