@@ -9,10 +9,10 @@ Resource    ../../Helpers.robot
 
 *** Variables ***
 # Locators
-${MAIN_MENU_INTERACTABLE_SECTION}    //section[contains(@class, 'gameStart_container__')]
+${MAIN_MENU_INTERACTABLE_SECTION}    //section[@data-testid='calendarCard']
 ${MAIN_MENU_SELECTED_MONTH_XPATH}    ${MAIN_MENU_INTERACTABLE_SECTION}/section/span
 ${MAIN_MENU_CHANGE_MONTH_BUTTON_XPATH}    ${MAIN_MENU_INTERACTABLE_SECTION}/section/button[2]
-${MAIN_MENU_BASE_CALENDAR_DAY_XPATH}    ${MAIN_MENU_INTERACTABLE_SECTION}/ul/li
+${MAIN_MENU_CALENDAR_DAY_BASE_XPATH}    ${MAIN_MENU_INTERACTABLE_SECTION}/ul/li
 
 
 *** Keywords ***
@@ -23,7 +23,7 @@ Wait For Menu To Be Ready
 Start Puzzle From Currently Selected Month
     [Arguments]    ${puzzle_day}
 
-    Helpers.Click Element After It Loads    xpath:${MAIN_MENU_BASE_CALENDAR_DAY_XPATH}\[${puzzle_day}\]
+    Helpers.Click Element After It Loads    xpath:${MAIN_MENU_CALENDAR_DAY_BASE_XPATH}\[${puzzle_day}\]
 
 
 Get Currently Selected Month and Year From Calendar Header
