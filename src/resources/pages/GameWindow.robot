@@ -39,7 +39,7 @@ Start Puzzle
 
     ${calendar_header_month_year}    GameMainMenu.Get Currently Selected Month and Year From Calendar Header
     IF  $puzzle_month_name.upper() != $calendar_header_month_year.month
-        GameMainMenu.Switch Calendar To Previous Month
+        GameMainMenu.Switch Calendar Month
     END
     GameMainMenu.Start Puzzle From Currently Selected Month    ${puzzle_day}
     GameGridAndClues.Wait For Game To Be Ready

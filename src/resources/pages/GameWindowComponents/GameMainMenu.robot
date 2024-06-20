@@ -51,7 +51,7 @@ Verify Calendar Header Displays Month And Year
     ...                           ${displayed_month_and_year_string}
 
 
-Switch Calendar To Previous Month
+Switch Calendar Month
     ${initial_selected_month_text}    Get Text
     ...                               xpath:${MAIN_MENU_SELECTED_MONTH_XPATH}
     Helpers.Click Element After It Loads    xpath:${MAIN_MENU_CHANGE_MONTH_BUTTON_XPATH}
