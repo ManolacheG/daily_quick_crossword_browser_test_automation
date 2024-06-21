@@ -65,6 +65,7 @@ Enter Solutions In Puzzle Grid To All Clues
 
 Fill In Entries For Clues In List
     [Tags]    robot:private
+
     [Arguments]    ${clue_list_item_locator}    ${clues_with_solutions}
 
     ${expected_number_of_clues}    Get Length    ${clues_with_solutions}

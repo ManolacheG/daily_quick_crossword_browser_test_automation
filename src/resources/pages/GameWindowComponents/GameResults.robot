@@ -7,12 +7,10 @@ Resource    ../../Helpers.robot
 
 *** Variables ***
 # Locators
-${GAME_END_RESULTS_SCREEN_XPATH}    //section[contains(@class,'gameEndPopup_window__')]
-${GAME_END_RESULTS_SCREEN_COMP_PERCENT_FIELD_XPATH}    //section[contains(@class,'gameEndPopup_container__')]/section[1]/h2
-${GAME_END_RESULTS_SCREEN_BUTTONS_CONTAINER_XPATH}    ${GAME_END_RESULTS_SCREEN_XPATH}/descendant::section[contains(@class,'gameEndPopup_submitContainer__')]
-${GAME_END_RESULTS_SCREEN_REVIEW_BUTTON_XPATH}    ${GAME_END_RESULTS_SCREEN_BUTTONS_CONTAINER_XPATH}/button[text()='Review Answers']
+${GAME_END_RESULTS_SCREEN_COMP_PERCENT_FIELD_XPATH}    //h4[text()='Completed without help or errors']/../h2
+${GAME_END_RESULTS_SCREEN_REVIEW_BUTTON_XPATH}    //button[text()='Review Answers']
 
-${GAME_END_RESULTS_SCREEN_SHOW_BUTTON_XPATH}    //button[contains(@class,'gameEndPopup_showButton__')]
+${GAME_END_RESULTS_SCREEN_SHOW_BUTTON_XPATH}    //button[text()='Results']
 
 # Other variables
 ${COMPLETED_PUZZLE_SCREENSHOT_NAME}    completed_puzzle_proof.png
