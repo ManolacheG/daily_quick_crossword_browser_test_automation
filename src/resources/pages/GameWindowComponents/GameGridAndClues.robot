@@ -49,7 +49,7 @@ Verify Game Footer Puzzle Date
     Should Be Equal As Strings    ${expected_year}   ${game_footer_puzzle_info_year}
 
 
-Fill In Puzzle Completely
+Enter Solutions In Puzzle Grid To All Clues
     [Documentation]    @arg clues_with_solutions: a dictionary containing the keys
     ...                "across" and "down", each mapping to the corresponding
     ...                list of clues. Each clue is a dictionary with the keys

@@ -55,7 +55,7 @@ Complete Puzzle Without Mistakes
     [Setup]    Select Game Container Frame
 
     GameHud.Configure Game For Fast Completion
-    GameGridAndClues.Fill In Puzzle Completely    ${clues_with_solutions}
+    GameGridAndClues.Enter Solutions In Puzzle Grid To All Clues    ${clues_with_solutions}
 
     [Teardown]    Unselect Frame
 
