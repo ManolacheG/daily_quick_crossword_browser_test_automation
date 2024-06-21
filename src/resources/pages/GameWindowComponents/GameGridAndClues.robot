@@ -27,7 +27,7 @@ ${GAME_SELECTED_SQUARE_COLOR}    rgb(255, 222, 113)
 
 *** Keywords ***
 Wait For Game To Be Ready
-    Wait For Element To Be Interactable    xpath:${GAME_GRID_BASE_XPATH}
+    Helpers.Wait For Element To Be Interactable    xpath:${GAME_GRID_BASE_XPATH}
 
 
 Verify Game Footer Puzzle Date
