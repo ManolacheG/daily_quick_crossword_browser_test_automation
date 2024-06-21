@@ -50,11 +50,16 @@ Verify Game Footer Puzzle Date
 
 
 Fill In Puzzle Completely
+    [Documentation]    @arg clues_with_solutions: a dictionary containing the keys
+    ...                "across" and "down", each mapping to the corresponding
+    ...                list of clues. Each clue is a dictionary with the keys
+    ...                "id", "clue", "char_counts", and "solution", where each key
+    ...                has assigned to it the expected string value.
+
     [Arguments]    ${clues_with_solutions}
 
     Fill In Entries For Clues In List    ${GAME_CLUE_LIST_ACROSS_ITEM_XPATH}
     ...                                  ${clues_with_solutions.across}
-
     Fill In Entries For Clues In List    ${GAME_CLUE_LIST_DOWN_ITEM_XPATH}
     ...                                  ${clues_with_solutions.down}
 
