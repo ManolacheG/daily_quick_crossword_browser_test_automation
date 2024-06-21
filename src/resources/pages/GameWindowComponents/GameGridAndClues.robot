@@ -18,7 +18,7 @@ ${GAME_CLUE_LIST_ACROSS_ITEM_XPATH}    ${GAME_CLUE_LIST_ACROSS_XPATH}/li
 ${GAME_CLUE_LIST_DOWN_XPATH}    ${GAME_CLUE_LISTS_COMMON_XPATH}\[2\]/ul
 ${GAME_CLUE_LIST_DOWN_ITEM_XPATH}    ${GAME_CLUE_LIST_DOWN_XPATH}/li
 
-${GAME_GRID_TABLE_XPATH}    //section[contains(@class,'game_gridLayout__')]/*[local-name()='svg']/*[local-name()='g']
+${GAME_GRID_TABLE_XPATH}    //*[local-name()='g' and @role='table']
 ${GAME_GRID_TABLE_CELL_XPATH}    ${GAME_GRID_TABLE_XPATH}/*[local-name()='g']
 
 # Other variables.
