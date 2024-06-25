@@ -9,8 +9,7 @@ Resource    GameWindow.robot
 # Locators
 ${COOKIE_DIALOG_ID}    qc-cmp2-ui
 ${COOKIE_DIALOG_XPATH}    //div[@id='${COOKIE_DIALOG_ID}']
-${COOKIE_DIALOG_GENERIC_BUTTON_XPATH}    ${COOKIE_DIALOG_XPATH}/descendant::div[contains(@class,'qc-cmp2-summary-buttons')]/button
-${COOKIE_DIALOG_AGREE_BUTTON_XPATH}    ${COOKIE_DIALOG_GENERIC_BUTTON_XPATH}/span[text()='AGREE']/..
+${COOKIE_DIALOG_AGREE_BUTTON_XPATH}    //div[contains(@class,'qc-cmp2-summary-buttons')]/button/span[text()='AGREE']/..
 
 ${PREROLL_CONTAINER_FRAME_XPATH}    //div[@id='ark_pre-roll']/descendant::iframe
 ${COMMON_GOOGLE_ADS_FRAME_XPATH}    //iframe[starts-with(@id, 'google_ads_iframe')]
