@@ -40,10 +40,17 @@ Start Puzzle
     ${calendar_header_month_year}    GameMainMenu.Get Currently Selected Month and Year From Calendar Header
     IF  $puzzle_month_name.upper() != $calendar_header_month_year.month
         GameMainMenu.Switch Calendar Month
+
+        ${calendar_header_month_year}    GameMainMenu.Get Currently Selected Month and Year From Calendar Header
+        Should Be Equal As Strings    ${puzzle_month_name.upper()}
+        ...                           ${calendar_header_month_year.month}
     END
+
     GameMainMenu.Start Puzzle From Currently Selected Month    ${puzzle_day}
     GameGridAndClues.Wait For Game To Be Ready
-    GameGridAndClues.Verify Game Footer Puzzle Date    ${puzzle_day}    ${puzzle_month_name}
+
+    GameGridAndClues.Verify Game Footer Puzzle Date    ${puzzle_day}
+    ...                                                ${puzzle_month_name}
     ...                                                ${puzzle_year}
 
     [Teardown]    Unselect Frame
