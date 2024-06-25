@@ -57,6 +57,12 @@ Start Puzzle
 
 
 Complete Puzzle Without Mistakes
+    [Documentation]    @arg clues_with_solutions: a dictionary containing the keys
+    ...                "across" and "down", each mapping to the corresponding
+    ...                list of clues. Each clue is a dictionary with the keys
+    ...                "id", "clue", "char_counts", and "solution", where each key
+    ...                has assigned to it the expected string value.
+
     [Arguments]    ${clues_with_solutions}
 
     [Setup]    Select Game Container Frame
