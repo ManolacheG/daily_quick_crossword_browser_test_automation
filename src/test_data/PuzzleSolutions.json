@@ -181,5 +181,188 @@
                 }
             ]
         }
+    },
+    "28June2024-NoMistakes":
+    {
+        "day": 28,
+        "month_name": "June",
+        "year": "2024",
+        "clues":
+        {
+            "across":
+            [
+                {
+                    "id": "1",
+                    "clue": "Ado",
+                    "char_counts": "4",
+                    "solution": "fuss"
+                },
+                {
+                    "id": "3",
+                    "clue": "Not fit to eat",
+                    "char_counts": "8",
+                    "solution": "inedible"
+                },
+                {
+                    "id": "9",
+                    "clue": "Embellished",
+                    "char_counts": "7",
+                    "solution": "adorned"
+                },
+                {
+                    "id": "10",
+                    "clue": "Grieve over",
+                    "char_counts": "5",
+                    "solution": "mourn"
+                },
+                {
+                    "id": "11",
+                    "clue": "Opera by Puccini",
+                    "char_counts": "5",
+                    "solution": "tosca"
+                },
+                {
+                    "id": "12",
+                    "clue": "Language",
+                    "char_counts": "6",
+                    "solution": "tongue"
+                },
+                {
+                    "id": "14",
+                    "clue": "Small unit of time",
+                    "char_counts": "6",
+                    "solution": "second"
+                },
+                {
+                    "id": "16",
+                    "clue": "Author",
+                    "char_counts": "6",
+                    "solution": "writer"
+                },
+                {
+                    "id": "19",
+                    "clue": "Mute",
+                    "char_counts": "6",
+                    "solution": "silent"
+                },
+                {
+                    "id": "21",
+                    "clue": "One of the five senses",
+                    "char_counts": "5",
+                    "solution": "sight"
+                },
+                {
+                    "id": "24",
+                    "clue": "Annoyed",
+                    "char_counts": "5",
+                    "solution": "irked"
+                },
+                {
+                    "id": "25",
+                    "clue": "Biblical giant",
+                    "char_counts": "7",
+                    "solution": "goliath"
+                },
+                {
+                    "id": "26",
+                    "clue": "Car driver",
+                    "char_counts": "8",
+                    "solution": "motorist"
+                },
+                {
+                    "id": "27",
+                    "clue": "Food for carnivores",
+                    "char_counts": "4",
+                    "solution": "meat"
+                }
+            ],
+            "down":
+            [
+                {
+                    "id": "1",
+                    "clue": "Flute player",
+                    "char_counts": "8",
+                    "solution": "flautist"
+                },
+                {
+                    "id": "2",
+                    "clue": "Glaswegians, Aberdonians, etc",
+                    "char_counts": "5",
+                    "solution": "scots"
+                },
+                {
+                    "id": "4",
+                    "clue": "Untidy (anag)",
+                    "char_counts": "6",
+                    "solution": "nudity"
+                },
+                {
+                    "id": "5",
+                    "clue": "Devil",
+                    "char_counts": "5",
+                    "solution": "demon"
+                },
+                {
+                    "id": "6",
+                    "clue": "Aroma given off by wine",
+                    "char_counts": "7",
+                    "solution": "bouquet"
+                },
+                {
+                    "id": "7",
+                    "clue": "Active volcano in Sicily",
+                    "char_counts": "4",
+                    "solution": "etna"
+                },
+                {
+                    "id": "8",
+                    "clue": "To no avail",
+                    "char_counts": "2,4",
+                    "solution": "invain"
+                },
+                {
+                    "id": "13",
+                    "clue": "Musical note",
+                    "char_counts": "8",
+                    "solution": "crotchet"
+                },
+                {
+                    "id": "15",
+                    "clue": "Chirping insect",
+                    "char_counts": "7",
+                    "solution": "cricket"
+                },
+                {
+                    "id": "17",
+                    "clue": "Impetuously",
+                    "char_counts": "6",
+                    "solution": "rashly"
+                },
+                {
+                    "id": "18",
+                    "clue": "Phases",
+                    "char_counts": "6",
+                    "solution": "stages"
+                },
+                {
+                    "id": "20",
+                    "clue": "Church official",
+                    "char_counts": "5",
+                    "solution": "elder"
+                },
+                {
+                    "id": "22",
+                    "clue": "Angry stare",
+                    "char_counts": "5",
+                    "solution": "glare"
+                },
+                {
+                    "id": "23",
+                    "clue": "Unyielding",
+                    "char_counts": "4",
+                    "solution": "firm"
+                }
+            ]
+        }
     }
 }

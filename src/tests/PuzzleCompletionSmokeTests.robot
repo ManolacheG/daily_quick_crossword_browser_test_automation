@@ -9,7 +9,7 @@ Test Teardown    Helpers.Shutdown Browsers
 
 *** Test Cases ***
 Complete Puzzle From Previous Month Without Making Mistakes
-    VAR    ${puzzle_dict}    ${28May2024-NoMistakes}
+    VAR    ${puzzle_dict}    ${28June2024-NoMistakes}
 
     GamePage.Open Browser At Daily Quick Crossword Game Page
     GamePage.Prepare Game Main Menu For Interaction
