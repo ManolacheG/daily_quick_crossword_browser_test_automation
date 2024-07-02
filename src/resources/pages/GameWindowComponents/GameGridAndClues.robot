@@ -82,12 +82,21 @@ Fill In Entries For Clues In List
 
         ${actual_clue_id}    Get Text    xpath:${current_clue_list_item_locator}/strong/div
         ${full_clue_string}    Get Text    xpath:${current_clue_list_item_locator}/div
-        ${actual_clue_string}    Fetch From Left    ${full_clue_string}    ${SPACE}(
-        ${actual_clue_char_counts}    Fetch From Right    ${full_clue_string}    (
-        ${actual_clue_char_counts}    Fetch From Left    ${actual_clue_char_counts}   )
+
+        ${solution_char_count_container_start_index}    Evaluate
+        ...                                             "${full_clue_string}".rindex("(")
+        ${actual_solution_char_counts}    Get Substring
+        ...                               ${full_clue_string}
+        ...                               ${solution_char_count_container_start_index + 1}
+        ...                               ${-1}
+        ${actual_clue_string}    Get Substring
+        ...                      ${full_clue_string}
+        ...                      ${0}
+        ...                      ${solution_char_count_container_start_index - 1}
+
         Should Be Equal As Strings    ${actual_clue_id}    ${clue_dict.id}
         Should Be Equal As Strings    ${actual_clue_string}    ${clue_dict.clue}
-        Should Be Equal As Strings    ${actual_clue_char_counts}    ${clue_dict.char_counts}
+        Should Be Equal As Strings    ${actual_solution_char_counts}    ${clue_dict.char_counts}
 
         VAR    ${clue_start_grid_cell}    ${GAME_GRID_TABLE_CELL_XPATH}/*[local-name()='text' and text()='${clue_dict.id}']
         ${clue_start_grid_cell_current_color}    Get Element Attribute
